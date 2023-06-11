@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Profile</h2>
+
+<h2>{{profile.user_name}} ~~ {{profile.get_age}} </h2>
+<h1>{{profile.category}}</h1>
+
+{% if profile.pk == user.profile_user.pk %}
+    <a href="{% url 'profile_update' profile.pk %}">Manage Profile</a>
+    <h3>friends</h3>
+    {% for friend in profile.get_friends %}
+      <p> <a href="{% url 'profile_detail' friend.pk %}">{{friend}}</a></p> 
+    {% endfor %}
+
+{% else %}
+    {% if user.profile_user not in profile.get_friends %}
+        <form action="{% url 'add_friend' profile.pk %}" method="post">
+            {% csrf_token %}
+        <button type="submit">Add friend</button>
+        </form>
+
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+        <button type="submit">delete friend</button>
+        </form>
+        {% endif %}
+
+{% endif %}
+
+
+
+{% endblock content %}

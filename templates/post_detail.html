@@ -1,0 +1,17 @@
+
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="post-detail">
+<h2>{{post.title}}</h2>
+<p>{{post.body}}</p>
+</div>
+{% if post.profile.pk == user.profile_user.pk %}
+
+<a href="{% url 'post_update' post.pk %}"> <button>update post</button></a>
+<a href="{% url 'post_delete' post.pk %}"><button>delete post</button></a>
+
+{% endif %}
+
+{% endblock content %}

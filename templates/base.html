@@ -1,0 +1,40 @@
+{% if  user.is_authenticated %}
+{% load static %}
+<html>
+
+<head>
+    <title>HALLO</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/post.css' %}"> 
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="{% url 'home' %}">HOME</a> </h1>
+        {% if user.profile_user %}
+            <a href="{% url 'profile_detail' user.profile_user.pk %}">My Profile</a>
+        {% else %}
+            <a href="{% url 'create_profile' %}">Create Profile</a>
+        {% endif %}
+        
+        <p class="L1"><a href="{% url 'post_create' %}">+ New Post</a></p>
+        <p class="logout"><a href="{% url 'logout' %}">Log Out</a></p>
+    </header>
+    
+    {% block content %}
+    {% endblock content %}
+    
+    
+
+</body>
+
+</html>
+
+{% else %}
+
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %}

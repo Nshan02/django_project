@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="posts">
+
+<h2>NEW POSTS</h2>
+{% for post in posts_list %}
+<div class="post">
+ <h3><a href="{% url 'profile_detail' post.profile.pk %}">{{post.profile.user_name}}</a> ~~ <a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h3>
+ <p>{{post.body}}</p>
+</div>
+{% endfor %}
+
+</div>
+
+    
+{% endblock content %}

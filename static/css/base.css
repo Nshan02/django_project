@@ -1,0 +1,45 @@
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+
+header {
+    background-color: rgb(255, 244, 199);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+  }
+  
+  
+  header a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin-left: 20px;
+
+  }
+  
+  header a:hover {
+    text-decoration: underline;
+  }
+  
+.posts {
+    color: rgb(0, 0, 0);
+    /* border: 3px solid #73AD21; */
+    padding: 10px;
+  }
+
+.post {
+  background-color: rgb(231, 231, 231);
+
+}
+
+.postdetail {
+  height: 80px;
+  width: 120px;
+  color: black;
+  background-color: bisque;
+
+}
