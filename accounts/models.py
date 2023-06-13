@@ -40,14 +40,6 @@ class Profile(models.Model):
 
         return friends_list
     
-    def is_friend(self,user):
-       friends_list = self.get_friends
-       if user in friends_list:
-           return True
-       else:
-           False
-        
-        
 
 class Friendship(models.Model):
     user1 = models.ForeignKey(Profile, related_name='friendships', on_delete=models.CASCADE)

@@ -4,7 +4,7 @@
 <h2>Profile</h2>
 
 <h2>{{profile.user_name}} ~~ {{profile.get_age}} </h2>
-<h1>{{profile.category}}</h1>
+<h3>{{profile.category}}</h3>
 
 {% if profile.pk == user.profile_user.pk %}
     <a href="{% url 'profile_update' profile.pk %}">Manage Profile</a>
@@ -21,11 +21,11 @@
         </form>
 
     {% else %}
-        <form action="" method="post">
+        <form action="{% url 'delete_friend' profile.pk %}" method="post">
             {% csrf_token %}
         <button type="submit">delete friend</button>
         </form>
-        {% endif %}
+    {% endif %}
 
 {% endif %}
 
