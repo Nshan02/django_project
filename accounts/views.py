@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile,Friendship
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseBadRequest
-from .forms import 
+from .forms import SearchProfileForm
 
 
 class SignUpView(CreateView):
@@ -59,11 +59,4 @@ def deletefriend(request,user_id):
     return redirect("profile_detail",pk = user_id)
             
 
-@login_required
-def search_profile(request):
 
-    name = request.GET.get('q')
-    profiles = Profile.objects.filter(user_name = name)
-   
-    return render(request,'searched_profiles.html')
-    

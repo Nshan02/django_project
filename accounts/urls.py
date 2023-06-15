@@ -7,6 +7,7 @@ from .views import (ProfileCreateView,
                     AddFriend,
                     deletefriend,
                     search_profile,
+                    searched_profiles
                     )
 
 urlpatterns = [
@@ -16,7 +17,7 @@ urlpatterns = [
     path('update/<int:pk>/',ProfileUpdateView.as_view(),name='profile_update'),
     path('add-friend/<int:user_id>/', AddFriend, name='add_friend'),
     path('delete-friend/<int:user_id>/',deletefriend,name= 'delete_friend'),
-    path('search/',search_profile,name='search-profile')
+
 ]
 
 

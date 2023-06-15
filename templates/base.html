@@ -12,10 +12,7 @@
 
     <header>
         <h1><a href="{% url 'home' %}">HOME</a> </h1>
-        <form action="{% url 'search-profile' %}">{% csrf_token %}
-                <input type="text">
-                <button type="submit">search</button>           
-        </form>
+     
         {% if user.profile_user %}
             <a href="{% url 'profile_detail' user.profile_user.pk %}">My Profile</a>
         {% else %}
