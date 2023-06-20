@@ -49,7 +49,6 @@ class Friendship(models.Model):
     class Meta:
         unique_together = ('user1', 'user2')
 
-
     def __str__(self):
         return f'{self.user1} is friend to {self.user2}' 
     

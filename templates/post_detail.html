@@ -11,7 +11,22 @@
 
 <a href="{% url 'post_update' post.pk %}"> <button>update post</button></a>
 <a href="{% url 'post_delete' post.pk %}"><button>delete post</button></a>
-
 {% endif %}
+<h3>comments</h3>
+{% for comment in post.get_comments %}
+<h4>{{comment.author }}</h4>
+<p>{{comment.text }}</p>
+
+{% endfor %}
+
+<form action="{% url 'add_comment' post.pk %}" method="post"> 
+    {% csrf_token %}
+
+<input type="text" name="text">
+<button type="submit">add comment</button>
+
+</form>
+
+
 
 {% endblock content %}

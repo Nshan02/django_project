@@ -18,7 +18,15 @@
         {% else %}
             <a href="{% url 'create_profile' %}">Create Profile</a>
         {% endif %}
-       
+
+        <form action="{% url 'users' %}" method="GET">
+            {% csrf_token %}
+
+            <input type="text" name="name_of_user">
+            <button type="submit">search</button>
+
+        </form>
+
         <p class="L1"><a href="{% url 'post_create' %}">+ New Post</a></p>
         <p class="logout"><a href="{% url 'logout' %}">Log Out</a></p>
     </header>
